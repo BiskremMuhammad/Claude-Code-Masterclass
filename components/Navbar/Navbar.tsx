@@ -37,12 +37,14 @@ export default function Navbar() {
               <span className={styles.userName}>{user.name}</span>
             </li>
           )}
-          <li>
-            <button onClick={handleLogout} className={styles.logoutBtn}>
-              <LogOut size={14} />
-              Logout
-            </button>
-          </li>
+          {user && (
+            <li>
+              <button onClick={handleLogout} className={styles.logoutBtn}>
+                <LogOut size={14} />
+                Logout
+              </button>
+            </li>
+          )}
         </ul>
       </nav>
     </div>

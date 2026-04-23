@@ -66,7 +66,7 @@ export default function AuthForm({ mode }: { mode: Mode }) {
         <form onSubmit={handleSubmit} className={styles.form}>
           {mode === 'signup' && (
             <div className={styles.field}>
-              <label htmlFor="name">Agent Name</label>
+              <label htmlFor="name">Agent Name <span className={styles.optional}>(optional)</span></label>
               <input
                 id="name"
                 type="text"
@@ -105,7 +105,7 @@ export default function AuthForm({ mode }: { mode: Mode }) {
             />
           </div>
 
-          {error && <p className={styles.error}>{error}</p>}
+          {error && <p className={styles.error} role="alert">{error}</p>}
 
           <button type="submit" className={styles.submit} disabled={isPending}>
             {isPending
