@@ -15,3 +15,32 @@
 svg.logo {
   display: inline-block;
 }
+
+.siteNav ul {
+  @apply flex items-center gap-4;
+}
+
+.userInfo {
+  @apply flex flex-col items-end;
+}
+
+.agentLabel {
+  @apply text-xs font-mono tracking-widest;
+  color: var(--color-secondary);
+}
+
+.userName {
+  @apply text-sm font-medium;
+  color: var(--color-heading);
+}
+
+.logoutBtn {
+  @apply flex items-center gap-1.5 text-sm font-medium px-3 py-1.5 rounded-lg;
+  color: var(--color-body);
+  transition: all 0.15s;
+}
+
+.logoutBtn:hover {
+  color: var(--color-error);
+  background: rgba(255, 100, 103, 0.1);
+}
