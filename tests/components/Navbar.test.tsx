@@ -1,8 +1,16 @@
 import { render, screen } from "@testing-library/react"
-import { describe, it, expect } from "vitest"
+import { describe, it, expect, vi } from "vitest"
 
 // component imports
 import Navbar from "@/components/Navbar"
+
+vi.mock("@/context/AuthContext", () => ({
+  useAuth: () => ({ user: null, logout: vi.fn() }),
+}))
+
+vi.mock("next/navigation", () => ({
+  useRouter: () => ({ push: vi.fn() }),
+}))
 
 describe("Navbar", () => {
   it("renders the main heading", () => {

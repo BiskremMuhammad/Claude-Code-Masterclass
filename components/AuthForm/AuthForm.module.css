@@ -1,0 +1,106 @@
+@reference "../../app/globals.css";
+
+.card {
+  @apply w-full max-w-sm mx-auto;
+  background: var(--color-light);
+  border: 1px solid rgba(194, 122, 255, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.tabs {
+  @apply flex;
+  border-bottom: 1px solid rgba(194, 122, 255, 0.15);
+}
+
+.tab {
+  @apply flex-1 py-3 text-center text-sm font-medium;
+  color: var(--color-body);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.tab:hover {
+  color: var(--color-primary);
+}
+
+.activeTab {
+  color: var(--color-primary) !important;
+  box-shadow: inset 0 -2px 0 var(--color-primary);
+  background: rgba(194, 122, 255, 0.05);
+}
+
+.body {
+  @apply p-8;
+}
+
+.header {
+  @apply mb-6;
+}
+
+.badge {
+  @apply text-xs font-mono tracking-widest;
+  color: var(--color-secondary);
+}
+
+.header h2 {
+  @apply text-xl font-bold mt-2 mb-1;
+}
+
+.subtitle {
+  @apply text-sm;
+  color: var(--color-body);
+}
+
+.form {
+  @apply flex flex-col gap-4;
+}
+
+.field {
+  @apply flex flex-col gap-1.5;
+}
+
+.field label {
+  @apply text-sm font-medium;
+  color: var(--color-heading);
+}
+
+.field input {
+  @apply w-full rounded-lg px-4 py-2.5 text-sm;
+  background: var(--color-lighter);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--color-heading);
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.field input::placeholder {
+  color: var(--color-body);
+  opacity: 0.5;
+}
+
+.field input:focus {
+  border-color: var(--color-primary);
+}
+
+.error {
+  @apply text-sm text-center rounded-lg py-2;
+  color: var(--color-error);
+  background: rgba(255, 100, 103, 0.08);
+}
+
+.submit {
+  @apply w-full rounded-lg py-3 text-sm font-semibold mt-1;
+  background: var(--color-primary);
+  color: white;
+  transition: opacity 0.15s;
+}
+
+.submit:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

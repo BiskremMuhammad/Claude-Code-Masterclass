@@ -1,8 +1,20 @@
-import { Clock8 } from "lucide-react"
+'use client';
+
+import { Clock8, LogOut } from "lucide-react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { useAuth } from "@/context/AuthContext"
 import styles from "./Navbar.module.css"
 
 export default function Navbar() {
+  const router = useRouter()
+  const { user, logout } = useAuth()
+
+  function handleLogout() {
+    logout()
+    router.push('/login')
+  }
+
   return (
     <div className={styles.siteNav}>
       <nav>
@@ -18,6 +30,18 @@ export default function Navbar() {
         <ul>
           <li>
             <Link href="/heists/create">Create Heist</Link>
+          </li>
+          {user && (
+            <li className={styles.userInfo}>
+              <span className={styles.agentLabel}>Agent</span>
+              <span className={styles.userName}>{user.name}</span>
+            </li>
+          )}
+          <li>
+            <button onClick={handleLogout} className={styles.logoutBtn}>
+              <LogOut size={14} />
+              Logout
+            </button>
           </li>
         </ul>
       </nav>
